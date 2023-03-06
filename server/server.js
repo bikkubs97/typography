@@ -14,10 +14,13 @@ const openai = new OpenAIApi(configuration)
 
 const app = express()
 
-app.use(cors({
-    origin: 'https://typography-ztlk.onrender.com'
-  }));
-
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Methods', 'POST');
+    next();
+  });
+  
 app.use(express.json())
 
 
