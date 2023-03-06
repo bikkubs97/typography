@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 dotenv.config()
-import express from 'express'
+import express, { response } from 'express'
 import cors from 'cors'
 
 import {  Configuration, OpenAIApi } from 'openai'
@@ -21,7 +21,7 @@ app.use(express.json())
 
 app.post('/imagine', async (req,res)=>{
 
-    const loadFinished=false
+   try{ const loadFinished=false
     
     const prompt = req.body.prompt
 
@@ -38,7 +38,12 @@ app.post('/imagine', async (req,res)=>{
    const image = aiResponse.data.data[0].url
    loadFinished == true
    res.send({image})
+}catch(error){
 
+    console.error(error)
+    res.status(500).send(error?.response.data.error.message||'something went wrong!')
+
+}
 
 
 })

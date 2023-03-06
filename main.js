@@ -1,28 +1,33 @@
 import './style.css'
 
-const form  = document.querySelector('form')
+const form = document.querySelector('form')
 
-form.addEventListener('submit', async(e)=>{
+form.addEventListener('submit', async (e) => {
   e.preventDefault()
   showAnimation()
 
   const data = new FormData(form)
   const response = await fetch('http://localhost:3000/imagine', {
-    method:'POST',
-    headers:{
-      'Content-Type':'application/json'
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
     },
-    body:JSON.stringify({
+    body: JSON.stringify({
       prompt: data.get('prompt')
-    }) 
-
+    })
   })
-  
-  const {image} = await response.json()
-  const result = document.querySelector('#result')
-  result.innerHTML=`<img src="${image}" width="300" height="300" style="border-radius: 10px;"/>`
-  hideAnimation()
+
+  if (response.ok) {
+    const { image } = await response.json()
+    const result = document.querySelector('#result')
+    result.innerHTML = `<img src="${image}" width="300" height="300" style="border-radius: 10px;"/>`
+    hideAnimation()
+  } else {
+    const err = await response.text()
+    alert(err)
+  }
 })
+
 
 function showAnimation(){
   const button = document.querySelector('button')
