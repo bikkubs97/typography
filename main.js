@@ -7,8 +7,8 @@ form.addEventListener('submit', async (e) => {
   showAnimation()
 
   const data = new FormData(form)
-  const response = await fetch('http://localhost:3000/imagine', {
-    method: 'POST',
+  const response = await fetch('https://mytypographyserver.onrender.com/imagine', {
+    method: 'POST',   
     headers: {
       'Content-Type': 'application/json'
     },
