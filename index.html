@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypoGraphy</title>
+  </head>
+  <body>
+    <script  type="module" src="/main.js" defer></script>
+    <main>
+      <div class="title">
+      <img src="logo.png" width="50" height="80"/>
+        <h1>TypoGraphy</h1>
+      </div>
+        <h4>A tool for creating AI generated images</h4>
+        <p>Type anything, like A dragon eating pizza on top of a skyscraper, 
+          A giant octopus wearing a top hat and monocle,<br> sitting at a tea party. 
+          TypoGraphy wiil convert that into 
+          an image. It's your imagination, sky is the limit, or is it?</p>
+        <div id="result">
+          <div class="loading">
+          <iframe src="https://giphy.com/embed/XbsSR42wC7MWNT2Fcp" width="200" height="200" frameBorder="0" ></iframe>
+  
+        </div>
+        </div>
+        <form>
+          <label for="Prompt">What Should I Imagine?</label><br>
+          <textarea name="prompt" maxlength="160"></textarea><br>
+          <button type="submit">Imagine!</button>
+        </form>
+    </main>
+    <footer>
+      <h5>Powered by OPENAI</h5>
+    </footer>
+  </body>
+</html>
