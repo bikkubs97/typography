@@ -7,7 +7,7 @@ form.addEventListener('submit', async (e) => {
   showAnimation()
 
   const data = new FormData(form)
-  const response = await fetch('https://typographyappserver.onrender.com/imagine', {
+  const response = await fetch('https://typographyserver.onrender.com/imagine', {
     method: 'POST',   
     headers: {
       'Content-Type': 'application/json'
@@ -29,15 +29,15 @@ form.addEventListener('submit', async (e) => {
 })
 
 
-function showAnimation(){
-  const button = document.querySelector('button')
-  button.disabled=true 
-  button.innerHTML='imagining...'
+function showAnimation() {
+  const button = document.querySelector('button');
+  button.disabled = true;
+  button.innerHTML = 'imagining...';
+  result.innerHTML = `<img src="load.gif"/>`;
 }
 
-function hideAnimation(){
-  const button = document.querySelector('button')
-  button.disabled = false
-  button.innerHTML = 'Imagine!'
-
+function hideAnimation() {
+  const button = document.querySelector('button');
+  button.disabled = false;
+  button.innerHTML = 'Imagine!';
 }
