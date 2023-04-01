@@ -30,10 +30,11 @@ form.addEventListener('submit', async (e) => {
 
 
 function showAnimation() {
+  result.innerHTML = `<img src="load.gif"/>`;
   const button = document.querySelector('button');
   button.disabled = true;
   button.innerHTML = 'imagining...';
-  result.innerHTML = `<img src="load.gif"/>`;
+  
 }
 
 function hideAnimation() {
