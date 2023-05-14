@@ -1,4 +1,4 @@
-import styles from './style.css?type=text/css';
+import './style.css'
 
 const form = document.querySelector('form')
 
